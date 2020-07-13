@@ -13,6 +13,15 @@
 		8D401C8C24BC397900E29BC6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D401C8A24BC397900E29BC6 /* Main.storyboard */; };
 		8D401C8E24BC397A00E29BC6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D401C8D24BC397A00E29BC6 /* Assets.xcassets */; };
 		8D401C9124BC397A00E29BC6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D401C8F24BC397A00E29BC6 /* LaunchScreen.storyboard */; };
+		8D401C9B24BC3AF400E29BC6 /* AlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D401C9924BC3AF400E29BC6 /* AlbumViewController.swift */; };
+		8D401C9C24BC3AF400E29BC6 /* AlbumViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8D401C9A24BC3AF400E29BC6 /* AlbumViewController.xib */; };
+		8D401CA324BC3BEC00E29BC6 /* AlbumCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D401CA124BC3BEC00E29BC6 /* AlbumCell.swift */; };
+		8D401CA424BC3BEC00E29BC6 /* AlbumCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8D401CA224BC3BEC00E29BC6 /* AlbumCell.xib */; };
+		8D401CA624BC4BB400E29BC6 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D401CA524BC4BB400E29BC6 /* Album.swift */; };
+		8D401CAA24BC501A00E29BC6 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D401CA824BC501A00E29BC6 /* GalleryViewController.swift */; };
+		8D401CAB24BC501A00E29BC6 /* GalleryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8D401CA924BC501A00E29BC6 /* GalleryViewController.xib */; };
+		8D401CAE24BC50E100E29BC6 /* GalleryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D401CAC24BC50E100E29BC6 /* GalleryCell.swift */; };
+		8D401CAF24BC50E100E29BC6 /* GalleryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8D401CAD24BC50E100E29BC6 /* GalleryCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +33,15 @@
 		8D401C8D24BC397A00E29BC6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8D401C9024BC397A00E29BC6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8D401C9224BC397A00E29BC6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8D401C9924BC3AF400E29BC6 /* AlbumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumViewController.swift; sourceTree = "<group>"; };
+		8D401C9A24BC3AF400E29BC6 /* AlbumViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlbumViewController.xib; sourceTree = "<group>"; };
+		8D401CA124BC3BEC00E29BC6 /* AlbumCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumCell.swift; sourceTree = "<group>"; };
+		8D401CA224BC3BEC00E29BC6 /* AlbumCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlbumCell.xib; sourceTree = "<group>"; };
+		8D401CA524BC4BB400E29BC6 /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
+		8D401CA824BC501A00E29BC6 /* GalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
+		8D401CA924BC501A00E29BC6 /* GalleryViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GalleryViewController.xib; sourceTree = "<group>"; };
+		8D401CAC24BC50E100E29BC6 /* GalleryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCell.swift; sourceTree = "<group>"; };
+		8D401CAD24BC50E100E29BC6 /* GalleryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GalleryCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,12 +77,37 @@
 				8D401C8424BC397900E29BC6 /* AppDelegate.swift */,
 				8D401C8624BC397900E29BC6 /* SceneDelegate.swift */,
 				8D401C8824BC397900E29BC6 /* ViewController.swift */,
+				8D401C9824BC3AD000E29BC6 /* Album */,
 				8D401C8A24BC397900E29BC6 /* Main.storyboard */,
 				8D401C8D24BC397A00E29BC6 /* Assets.xcassets */,
 				8D401C8F24BC397A00E29BC6 /* LaunchScreen.storyboard */,
 				8D401C9224BC397A00E29BC6 /* Info.plist */,
 			);
 			path = Album1;
+			sourceTree = "<group>";
+		};
+		8D401C9824BC3AD000E29BC6 /* Album */ = {
+			isa = PBXGroup;
+			children = (
+				8D401CA524BC4BB400E29BC6 /* Album.swift */,
+				8D401C9924BC3AF400E29BC6 /* AlbumViewController.swift */,
+				8D401C9A24BC3AF400E29BC6 /* AlbumViewController.xib */,
+				8D401CA124BC3BEC00E29BC6 /* AlbumCell.swift */,
+				8D401CA224BC3BEC00E29BC6 /* AlbumCell.xib */,
+				8D401CA724BC4FD500E29BC6 /* Gallery */,
+			);
+			path = Album;
+			sourceTree = "<group>";
+		};
+		8D401CA724BC4FD500E29BC6 /* Gallery */ = {
+			isa = PBXGroup;
+			children = (
+				8D401CA824BC501A00E29BC6 /* GalleryViewController.swift */,
+				8D401CA924BC501A00E29BC6 /* GalleryViewController.xib */,
+				8D401CAC24BC50E100E29BC6 /* GalleryCell.swift */,
+				8D401CAD24BC50E100E29BC6 /* GalleryCell.xib */,
+			);
+			path = Gallery;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,9 +168,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D401C9C24BC3AF400E29BC6 /* AlbumViewController.xib in Resources */,
+				8D401CAB24BC501A00E29BC6 /* GalleryViewController.xib in Resources */,
 				8D401C9124BC397A00E29BC6 /* LaunchScreen.storyboard in Resources */,
+				8D401CA424BC3BEC00E29BC6 /* AlbumCell.xib in Resources */,
 				8D401C8E24BC397A00E29BC6 /* Assets.xcassets in Resources */,
 				8D401C8C24BC397900E29BC6 /* Main.storyboard in Resources */,
+				8D401CAF24BC50E100E29BC6 /* GalleryCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,9 +185,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D401C9B24BC3AF400E29BC6 /* AlbumViewController.swift in Sources */,
+				8D401CAA24BC501A00E29BC6 /* GalleryViewController.swift in Sources */,
 				8D401C8924BC397900E29BC6 /* ViewController.swift in Sources */,
+				8D401CA324BC3BEC00E29BC6 /* AlbumCell.swift in Sources */,
+				8D401CAE24BC50E100E29BC6 /* GalleryCell.swift in Sources */,
 				8D401C8524BC397900E29BC6 /* AppDelegate.swift in Sources */,
 				8D401C8724BC397900E29BC6 /* SceneDelegate.swift in Sources */,
+				8D401CA624BC4BB400E29BC6 /* Album.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

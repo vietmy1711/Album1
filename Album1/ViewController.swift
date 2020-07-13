@@ -15,6 +15,11 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-
+    @IBAction func startBtnPressed(_ sender: UIButton) {
+        let albumVC = AlbumViewController(nibName: "AlbumViewController", bundle: nil)
+        albumVC.navigationItem.title = "Album"
+        navigationController?.pushViewController(albumVC, animated: true)
+    }
+    
 }
 
