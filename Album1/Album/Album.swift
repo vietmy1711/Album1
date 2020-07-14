@@ -11,4 +11,5 @@ import Foundation
 struct Album {
     let title: String
     let number: Int
+    var images: [String?]
 }

@@ -17,7 +17,10 @@ class GalleryCell: UICollectionViewCell {
     }
 
     func configWithImage(_ image: UIImage?) {
-        imvImage.image = image
+//        DispatchQueue.main.async {
+            self.imvImage.image = image
+
+//        }
     }
     
     override func prepareForReuse() {

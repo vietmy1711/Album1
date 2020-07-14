@@ -9,16 +9,21 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
-
+    
     @IBAction func startBtnPressed(_ sender: UIButton) {
-        let albumVC = AlbumViewController(nibName: "AlbumViewController", bundle: nil)
-        albumVC.navigationItem.title = "Album"
-        navigationController?.pushViewController(albumVC, animated: true)
+        let albumLocalVC = AlbumViewController(nibName: "AlbumViewController", bundle: nil)
+        albumLocalVC.tabBarItem = UITabBarItem(title: "Local", image: UIImage(systemName: "person.2.square.stack"), selectedImage: UIImage(systemName: "person.2.square.stack"))
+        let albumInternetVC = AlbumViewController(nibName: "AlbumViewController", bundle: nil)
+        albumInternetVC.isFromInternet = true
+        albumInternetVC.tabBarItem = UITabBarItem(title: "Internet", image: UIImage(systemName: "person.2.square.stack"), selectedImage: UIImage(systemName: "person.2.square.stack"))
+        let tabBarVC = UITabBarController()
+        tabBarVC.viewControllers = [albumLocalVC, albumInternetVC]
+        navigationController?.pushViewController(tabBarVC, animated: true)
     }
     
 }

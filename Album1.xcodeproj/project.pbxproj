@@ -22,6 +22,8 @@
 		8D401CAB24BC501A00E29BC6 /* GalleryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8D401CA924BC501A00E29BC6 /* GalleryViewController.xib */; };
 		8D401CAE24BC50E100E29BC6 /* GalleryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D401CAC24BC50E100E29BC6 /* GalleryCell.swift */; };
 		8D401CAF24BC50E100E29BC6 /* GalleryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8D401CAD24BC50E100E29BC6 /* GalleryCell.xib */; };
+		8D401CB324BDA9F900E29BC6 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D401CB124BDA9F900E29BC6 /* DetailViewController.swift */; };
+		8D401CB424BDA9F900E29BC6 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8D401CB224BDA9F900E29BC6 /* DetailViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +44,8 @@
 		8D401CA924BC501A00E29BC6 /* GalleryViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GalleryViewController.xib; sourceTree = "<group>"; };
 		8D401CAC24BC50E100E29BC6 /* GalleryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCell.swift; sourceTree = "<group>"; };
 		8D401CAD24BC50E100E29BC6 /* GalleryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GalleryCell.xib; sourceTree = "<group>"; };
+		8D401CB124BDA9F900E29BC6 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		8D401CB224BDA9F900E29BC6 /* DetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +81,7 @@
 				8D401C8424BC397900E29BC6 /* AppDelegate.swift */,
 				8D401C8624BC397900E29BC6 /* SceneDelegate.swift */,
 				8D401C8824BC397900E29BC6 /* ViewController.swift */,
+				8D401CB024BDA9D500E29BC6 /* Detail */,
 				8D401C9824BC3AD000E29BC6 /* Album */,
 				8D401C8A24BC397900E29BC6 /* Main.storyboard */,
 				8D401C8D24BC397A00E29BC6 /* Assets.xcassets */,
@@ -108,6 +113,15 @@
 				8D401CAD24BC50E100E29BC6 /* GalleryCell.xib */,
 			);
 			path = Gallery;
+			sourceTree = "<group>";
+		};
+		8D401CB024BDA9D500E29BC6 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				8D401CB124BDA9F900E29BC6 /* DetailViewController.swift */,
+				8D401CB224BDA9F900E29BC6 /* DetailViewController.xib */,
+			);
+			path = Detail;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -171,6 +185,7 @@
 				8D401C9C24BC3AF400E29BC6 /* AlbumViewController.xib in Resources */,
 				8D401CAB24BC501A00E29BC6 /* GalleryViewController.xib in Resources */,
 				8D401C9124BC397A00E29BC6 /* LaunchScreen.storyboard in Resources */,
+				8D401CB424BDA9F900E29BC6 /* DetailViewController.xib in Resources */,
 				8D401CA424BC3BEC00E29BC6 /* AlbumCell.xib in Resources */,
 				8D401C8E24BC397A00E29BC6 /* Assets.xcassets in Resources */,
 				8D401C8C24BC397900E29BC6 /* Main.storyboard in Resources */,
@@ -185,6 +200,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D401CB324BDA9F900E29BC6 /* DetailViewController.swift in Sources */,
 				8D401C9B24BC3AF400E29BC6 /* AlbumViewController.swift in Sources */,
 				8D401CAA24BC501A00E29BC6 /* GalleryViewController.swift in Sources */,
 				8D401C8924BC397900E29BC6 /* ViewController.swift in Sources */,

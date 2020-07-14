@@ -17,13 +17,29 @@ class AlbumViewController: UIViewController {
     
     var albums: [Album] = []
     
+    var isFromInternet = false
+    
+    var imagesFromInternet: [UIImage] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: "AlbumCell", bundle: nil), forCellReuseIdentifier: "AlbumCell")
-        getAccess()
-        getAlbums()
+        if isFromInternet == true {
+            getImagesFromInternet()
+        } else {
+            getAccess()
+            getAlbums()
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tabBarController?.navigationItem.title = "Local"
+        if isFromInternet == true {
+            tabBarController?.navigationItem.title = "Internet"
+        }
     }
     
     func getAccess() {
@@ -60,7 +76,7 @@ class AlbumViewController: UIViewController {
         albumList = PHAssetCollection.fetchAssetCollections(with: .smartAlbum, subtype: .albumRegular, options: nil)
         albumList!.enumerateObjects { (coll, _, _) in
             let result = self.getAssets(fromCollection: coll)
-            self.albums.append(Album(title: coll.localizedTitle!, number: result.count))
+            self.albums.append(Album(title: coll.localizedTitle!, number: result.count, images: []))
         }
     }
     
@@ -70,12 +86,22 @@ class AlbumViewController: UIViewController {
         photosOptions.predicate = NSPredicate(format: "mediaType == %d", PHAssetMediaType.image.rawValue)
         return PHAsset.fetchAssets(in: collection, options: photosOptions)
     }
+    
+    func getImagesFromInternet() {
+        for i in 1...10 {
+            var album = Album(title: "Album \(i)", number: 100, images: [])
+            for j in 1...100 {
+                album.images.append("https://picsum.photos/id/\(i)\(j)/1000")
+            }
+            albums.append(album)
+        }
+    }
 }
 
 extension AlbumViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return albumList!.count
+        return albums.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -87,8 +113,36 @@ extension AlbumViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let galleryVC = GalleryViewController(nibName: "GalleryViewController", bundle: nil)
-        let result = getAssets(fromCollection: albumList!.object(at: indexPath.row))
-        galleryVC.images = result
+        if isFromInternet == true {
+            galleryVC.isFromInternet = true
+            galleryVC.imagesFromInternet = albums[indexPath.row].images
+            galleryVC.navigationItem.title = albums[indexPath.row].title
+        } else {
+            let result = getAssets(fromCollection: albumList!.object(at: indexPath.row))
+            galleryVC.imagesFromLocal = result
+            galleryVC.navigationItem.title = albumList!.object(at: indexPath.row).localizedTitle
+        }
         navigationController?.pushViewController(galleryVC, animated: true)
+    }
+}
+
+extension UIImageView {
+    func downloaded(from url: URL, contentMode mode: UIView.ContentMode = .scaleAspectFit) {  // for swift 4.2 syntax just use ===> mode: UIView.ContentMode
+        contentMode = mode
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            guard
+                let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200,
+                let mimeType = response?.mimeType, mimeType.hasPrefix("image"),
+                let data = data, error == nil,
+                let image = UIImage(data: data)
+                else { return }
+            DispatchQueue.main.async() { [weak self] in
+                self?.image = image
+            }
+        }.resume()
+    }
+    func downloaded(from link: String, contentMode mode: UIView.ContentMode = .scaleAspectFit) {  // for swift 4.2 syntax just use ===> mode: UIView.ContentMode
+        guard let url = URL(string: link) else { return }
+        downloaded(from: url, contentMode: mode)
     }
 }

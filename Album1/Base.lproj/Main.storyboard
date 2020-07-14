@@ -15,19 +15,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yww-IF-N7k">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="31" translatesAutoresizingMaskIntoConstraints="NO" id="XzQ-fv-53o">
                                 <rect key="frame" x="175.5" y="424" width="63" height="48"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <state key="normal" title="Start"/>
-                                <connections>
-                                    <action selector="startBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="600-0H-mjj"/>
-                                </connections>
-                            </button>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yww-IF-N7k">
+                                        <rect key="frame" x="0.0" y="0.0" width="63" height="48"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <state key="normal" title="Start"/>
+                                        <connections>
+                                            <action selector="startBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="600-0H-mjj"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="yww-IF-N7k" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="3kX-wy-d1Y"/>
-                            <constraint firstItem="yww-IF-N7k" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="HrK-EK-HZA"/>
+                            <constraint firstItem="XzQ-fv-53o" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="QcI-Ap-Zj7"/>
+                            <constraint firstItem="XzQ-fv-53o" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="qq0-Vi-3Z3"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>

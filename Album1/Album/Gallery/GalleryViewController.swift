@@ -14,8 +14,11 @@ class GalleryViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var collectionViewFlowLayout: UICollectionViewFlowLayout!
     
-    var images: PHFetchResult<PHAsset>?
+    var imagesFromLocal: PHFetchResult<PHAsset>?
+    var imagesFromInternet: [String?] = []
 
+    var isFromInternet = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -23,6 +26,13 @@ class GalleryViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.register(UINib(nibName: "GalleryCell", bundle: nil), forCellWithReuseIdentifier: "GalleryCell")
         setupCollectionView()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if isFromInternet == false {
+            scrollToBottom()
+        }
     }
     
     func setupCollectionView() {
@@ -33,21 +43,49 @@ class GalleryViewController: UIViewController {
         let size = CGSize(width:(collectionView!.bounds.width-50)/4, height: (collectionView!.bounds.width-50)/4)
         collectionViewFlowLayout.itemSize = size
     }
+    
+    func scrollToBottom() {
+        if isFromInternet == true {
+            if imagesFromInternet.count != 0 {
+                collectionView.scrollToItem(at: IndexPath(row: imagesFromInternet.count - 1, section: 0), at: .bottom, animated: true)
+            }
+        }
+        else if imagesFromLocal!.count != 0 {
+            collectionView.scrollToItem(at: IndexPath(row: imagesFromLocal!.count - 1, section: 0), at: .bottom, animated: true)
+        }
+    }
 }
 
 extension GalleryViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return images!.count
+        if isFromInternet == true {
+            return imagesFromInternet.count
+        }
+        return imagesFromLocal!.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GalleryCell", for: indexPath) as! GalleryCell
-        let asset = images!.object(at: indexPath.row)
+        if isFromInternet == true {
+            cell.imvImage.downloaded(from: imagesFromInternet[indexPath.row]!)
+            print(imagesFromInternet[indexPath.row]!)
+            return cell
+        }
+        let asset = imagesFromLocal!.object(at: indexPath.row)
         PHCachingImageManager.default().requestImage(for: asset, targetSize: CGSize(width: 200, height: 200), contentMode: .aspectFill, options: nil) { (image, _) in
             cell.configWithImage(image)
            }
-        cell.backgroundColor = .systemTeal
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let detailVC = DetailViewController(nibName: "DetailViewController", bundle: nil)
+        if isFromInternet == true {
+           // detailVC.imvImage.downloaded(from: imagesFromInternet[indexPath.row]!)
+        } else {
+            
+        }
+        navigationController?.pushViewController(detailVC, animated: true)
+    }
 }
